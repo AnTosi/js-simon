@@ -34,11 +34,14 @@ let numberList = [];
 
 for(let i=0; i < 5; i++){
     let thisNumber = randomNumbGen100();
-    numberList.push(thisNumber);
+    numberList.push(` ${thisNumber}`);
 }
 console.log(numberList);
 
+// faccio l'alert
 
+alert(`Memorizza i numeri che vedi, ti verrano richiesti dopo 30 secondi:
+${numberList}`)
 
 //questo è il timer per la riunione con Chiara
 
