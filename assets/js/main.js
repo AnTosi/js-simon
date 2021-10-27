@@ -62,16 +62,16 @@ printResult(correctNumbers);
 
 //ora devo fare funzione insertNumbers, che dovrà cheidere 5 numeri con prompt:
 
-function insertNumbers (){
-    for (let i=0; i < 5; i++) {
-        let userNumber = prompt(`Inserisci uno dei numeri che hai visto precedentemente`);
-        userNumbers.push(parseInt(userNumber));
-    }
-    console.log(userNumbers);
+// function insertNumbers (){
+//     for (let i=0; i < 5; i++) {
+//         let userNumber = prompt(`Inserisci uno dei numeri che hai visto precedentemente`);
+//         userNumbers.push(parseInt(userNumber));
+//     }
+//     console.log(userNumbers);
 
-    // (checkNumbers(userNumbers, randomNumbers));
-    // (printResult(correctNumbers));
-}
+//     // (checkNumbers(userNumbers, randomNumbers));
+//     // (printResult(correctNumbers));
+// }
 
 function checkNumbers (userNumbers, randomNumbers) {
     randomNumbers.forEach(number => {
@@ -104,3 +104,13 @@ function printResult (correctNumbersArray) {
 //che ovviamente non è servito perché ogni volta che premevo ctrl+s ripartiva, e quindi è uscito dopo 10 minuti dall'inizio della riunione XD
 
 // setTimeout(function(){ alert("RIUNIONE SU ZOOM"); }, 600000);
+
+//non so perché col prompt non mi funziona il settimeout, provo con un altro sistema
+//ovvero, inserisco il numero in uno spazio, al click dell'invio prendo il valore e lo pusho nell'array
+// for (let i = 0; i < 5; i++) {
+// document.querySelector("button").addEventListener("click", function(){
+//     let thisNumber = document.querySelector("input").value;
+    
+//     userNumbers.push(thisNumber);
+//     console.log(userNumbers);
+// }
