@@ -27,28 +27,31 @@ function randomNumbGen100 ()
 
 
 //array vuoto per inserirci numeri che genererò
-let numberList = []; 
+let randomNumbers = []; 
 //array vuoto per inserci numeri da prompt
 let userNumbers = [];
+//array vuoto numeri indovinati
+let correctNumbers = [];
 
 
 //ciclo questa funzione per farla 5 volte e la pusho nell'array
 
 for(let i=0; i < 5; i++){
     let thisNumber = randomNumbGen100();
-    numberList.push(` ${thisNumber}`);
+    randomNumbers.push(parseInt(thisNumber));
 }
-console.log(numberList);
+console.log(randomNumbers);
 
 // faccio l'alert
 
 alert(`Memorizza i numeri che vedi, ti verrano richiesti dopo 30 secondi:
-${numberList}`)
+${randomNumbers}`)
 
 
 //ora mi serve setTimeout con dentro i prompt per chiedere di inserire il numero, essendo 5 provo a metterli in un ciclo. I numeri che inserisce l'utente li pusho in un array e poi con foreach controllo se ogni numero è incluso nell'array dei numeri random, se sì pusho il risultato in un terzo array e nella stampa della risposta con length vedo quanti ne ha indovinati
 
 setTimeout(insertNumbers(), 3000);
+setTimeout(checkNumbers(randomNumbers, userNumbers), 40000);
 
 
 //ora devo fare funzione insertNumbers, che dovrà cheidere 5 numeri con prompt:
@@ -56,12 +59,19 @@ setTimeout(insertNumbers(), 3000);
 function insertNumbers (){
     for (let i=0; i < 5; i++) {
         let userNumber = prompt(`Inserisci uno dei numeri che hai visto precedentemente`);
-        userNumbers.push(userNumber);
+        userNumbers.push(parseInt(userNumber));
     }
     console.log(userNumbers);
 }
 
-
+function checkNumbers (randomNumbers, userNumbers) {
+    userNumbers.forEach(number => {
+        if (randomNumbers.includes(number)) {
+            correctNumbers.push(number);
+        }
+    });
+    console.log(correctNumbers);
+}
 //questo è il timer per la riunione con Chiara
 //che ovviamente non è servito perché ogni volta che premevo ctrl+s ripartiva, e quindi è uscito dopo 10 minuti dall'inizio della riunione XD
 
