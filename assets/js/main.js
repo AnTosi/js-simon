@@ -53,7 +53,9 @@ ${randomNumbers}`)
 //ora mi serve setTimeout con dentro i prompt per chiedere di inserire il numero, essendo 5 provo a metterli in un ciclo. I numeri che inserisce l'utente li pusho in un array e poi con foreach controllo se ogni numero è incluso nell'array dei numeri random, se sì pusho il risultato in un terzo array e nella stampa della risposta con length vedo quanti ne ha indovinati
 
 //metto 3000 invece che 30000 mila per fare le prove sennò smatto ad aspettare 30 secondi ogni volta
-setTimeout(insertNumbers(), 30000);
+const prompter = setTimeout(insertNumbers(), 30000);
+checkNumbers(userNumbers, randomNumbers);
+printResult(correctNumbers);
 // setTimeout(checkNumbers(randomNumbers, userNumbers), 40000);
 // setTimeout(printResult(correctNumbers), 43000)
 
@@ -67,8 +69,8 @@ function insertNumbers (){
     }
     console.log(userNumbers);
 
-    (checkNumbers(userNumbers, randomNumbers));
-    (printResult(correctNumbers));
+    // (checkNumbers(userNumbers, randomNumbers));
+    // (printResult(correctNumbers));
 }
 
 function checkNumbers (userNumbers, randomNumbers) {
