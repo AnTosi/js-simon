@@ -32,6 +32,8 @@ let randomNumbers = [];
 let userNumbers = [];
 //array vuoto numeri indovinati
 let correctNumbers = [];
+//array vuoto numeri sbagliati, non era richiesto ma è per metterlo nel messaggio finale
+let forgottenNumbers = [];
 
 
 //ciclo questa funzione per farla 5 volte e la pusho nell'array
@@ -50,8 +52,10 @@ ${randomNumbers}`)
 
 //ora mi serve setTimeout con dentro i prompt per chiedere di inserire il numero, essendo 5 provo a metterli in un ciclo. I numeri che inserisce l'utente li pusho in un array e poi con foreach controllo se ogni numero è incluso nell'array dei numeri random, se sì pusho il risultato in un terzo array e nella stampa della risposta con length vedo quanti ne ha indovinati
 
-setTimeout(insertNumbers(), 3000);
-setTimeout(checkNumbers(randomNumbers, userNumbers), 40000);
+//metto 3000 invece che 30000 mila per fare le prove sennò smatto ad aspettare 30 secondi ogni volta
+setTimeout(insertNumbers(), 30000);
+// setTimeout(checkNumbers(randomNumbers, userNumbers), 40000);
+// setTimeout(printResult(correctNumbers), 43000)
 
 
 //ora devo fare funzione insertNumbers, che dovrà cheidere 5 numeri con prompt:
@@ -62,16 +66,38 @@ function insertNumbers (){
         userNumbers.push(parseInt(userNumber));
     }
     console.log(userNumbers);
+
+    (checkNumbers(userNumbers, randomNumbers));
+    (printResult(correctNumbers));
 }
 
-function checkNumbers (randomNumbers, userNumbers) {
-    userNumbers.forEach(number => {
-        if (randomNumbers.includes(number)) {
+function checkNumbers (userNumbers, randomNumbers) {
+    randomNumbers.forEach(number => {
+        if (userNumbers.includes(number)) {
             correctNumbers.push(number);
+        } else {
+            forgottenNumbers.push(number)
         }
     });
     console.log(correctNumbers);
+    console.log(forgottenNumbers);
 }
+
+
+
+
+// ora funzione print result per stampare a schermo il risultato
+
+
+/**
+ * Stampa a schermo i risultati corretti e il loro quantitativo
+ * @param {array} correctNumbersArray array dei risultati corretti che vogliamo stampare
+ */
+function printResult (correctNumbersArray) {
+    document.querySelector("h1").innerHTML = `Ti sei ricordato ${correctNumbersArray.length} numeri: ${correctNumbersArray}; mentre non ti sei ricordato ${forgottenNumbers}`
+}
+
+
 //questo è il timer per la riunione con Chiara
 //che ovviamente non è servito perché ogni volta che premevo ctrl+s ripartiva, e quindi è uscito dopo 10 minuti dall'inizio della riunione XD
 
