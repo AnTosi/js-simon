@@ -10,4 +10,36 @@
 // Info:
 // L'alert non si chiude in automatico. Dovete chiuderla voi a mano cliccando su ok.
 
-//comincio dalle prime cose, credo funzione generatore numeri random, la metto dentro a un ciclo per farne 5, pusho i numeri in un array e creo alert
+//comincio dalle prime cose, credo funzione generatore numeri random, la metto dentro a un ciclo per farne 5, pusho i numeri in un array e creo alert con dentro i numeri generati
+
+
+//presa e adattata da w3school
+
+/**
+ * 
+ *mi stampa un numero random da 1 a 100
+ * @returns numero random da 1 a 100
+ */
+function randomNumbGen100 () 
+    {
+        return Math.floor(Math.random() * 100 + 1);
+    }
+
+
+//array vuoto per inserirci numeri che genererò
+let numberList = []; 
+
+
+//ciclo questa funzione per farla 5 volte e la pusho nell'array
+
+for(let i=0; i < 5; i++){
+    let thisNumber = randomNumbGen100();
+    numberList.push(thisNumber);
+}
+console.log(numberList);
+
+
+
+//questo è il timer per la riunione con Chiara
+
+setTimeout(function(){ alert("RIUNIONE SU ZOOM"); }, 600000);
