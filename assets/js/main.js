@@ -62,16 +62,16 @@ printResult(correctNumbers);
 
 //ora devo fare funzione insertNumbers, che dovrà cheidere 5 numeri con prompt:
 
-// function insertNumbers (){
-//     for (let i=0; i < 5; i++) {
-//         let userNumber = prompt(`Inserisci uno dei numeri che hai visto precedentemente`);
-//         userNumbers.push(parseInt(userNumber));
-//     }
-//     console.log(userNumbers);
+function insertNumbers (){
+    for (let i=0; i < 5; i++) {
+        let userNumber = prompt(`Inserisci uno dei numeri che hai visto precedentemente`);
+        userNumbers.push(parseInt(userNumber));
+    }
+    console.log(userNumbers);
 
-//     // (checkNumbers(userNumbers, randomNumbers));
-//     // (printResult(correctNumbers));
-// }
+    // (checkNumbers(userNumbers, randomNumbers));
+    // (printResult(correctNumbers));
+}
 
 function checkNumbers (userNumbers, randomNumbers) {
     randomNumbers.forEach(number => {
